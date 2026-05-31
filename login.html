@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Login - Sparklex</title>
-<link rel="stylesheet" href="styles.css">
+
 <style>
 .container{
   max-width:400px;
@@ -12,7 +12,7 @@
   padding:20px;
 }
 
-inputinput {
+input {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
@@ -27,24 +27,13 @@ inputinput {
   cursor: pointer;
 }
 
-.login-btn{<button id="loginBtn" class="login-btn">
-  Login
-</button>
-
-<button id="signupBtn" class="login-btn">
-  Sign Up
-</button>
-  width:100%;
-  padding:12px;
-  margin-top:10px;
-}
-
 .back{
   text-align:center;
   margin-top:20px;
 }
 </style>
 </head>
+
 <body>
 
 <div class="container">
@@ -52,63 +41,84 @@ inputinput {
   <p>Login to Sparklex</p>
 
   <input id="email" type="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
+  <input id="password" type="password" placeholder="Password">
 
-  <button id="loginBtn" class="login-btn">
-  Login
-  </button>
-
-  <button id="signupBtn" class="login-btn">
-  Sign Up
-  </button>
+  <button id="loginBtn" class="login-btn">Login</button>
+  <button id="signupBtn" class="login-btn">Sign Up</button>
 
   <div class="back">
     <a href="index.html">← Back Home</a>
   </div>
 </div>
+
+<!-- Supabase -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script>
-</body>
-</html>
 
+<script>
+// ========================
+// SUPABASE CONFIG (PASTE YOUR KEYS HERE)
+// ========================
+const supabaseUrl = "PASTE_YOUR_SUPABASE_URL_HERE";
+const supabaseKey = "PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
 
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+// ========================
+// INPUTS
+// ========================
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
-const { data } = await supabaseClient.auth.getUser();
-
-if (!data.user) {
-  window.location.href = "login.html";
-}
-
-document.getElementById("signupBtn")
-.addEventListener("click", () => {
-  alert("Sign Up button clicked");
-});
-
-document.getElementById("loginBtn")
-.addEventListener("click", async () => {
-
-  const { data, error } = await supabaseClient.auth.signUp({
-  email,
-  password
-});
-
-if (error) {
-  alert(error.message);
-  return;
-
-const { data } = await supabaseClient.auth.getUser();
-
-if (!data.user) {
-  window.location.href = "login.html";
-}
-
-alert("Check your email for confirmation");
+// ========================
+// LOGIN
+// ========================
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
 
   if (!email || !password) {
-  alert("Please enter email and password");
-  return;
-}
+    alert("Please enter email and password");
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  window.location.href = "dashboard.html";
 });
-                  </script> >
+
+// ========================
+// SIGN UP
+// ========================
+document.getElementById("signupBtn").addEventListener("click", async () => {
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
+  }
+
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password
+  });
+
+  if (error) {
+    alert(error.message);
+    return;
+  }
+
+  alert("Check your email for confirmation");
+});
+</script>
+
+</body>
+</html>
