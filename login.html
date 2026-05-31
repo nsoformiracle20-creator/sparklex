@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - Sparklex</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+.container{
+  max-width:400px;
+  margin:80px auto;
+  padding:20px;
+}
 
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:8px;
+}
+
+.login-btn{
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+}
+
+.back{
+  text-align:center;
+  margin-top:20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Welcome Back</h1>
+  <p>Login to Sparklex</p>
+
+  <input type="email" placeholder="Email">
+  <input type="password" placeholder="Password">
+
+  <button class="login-btn" onclick="location.href='dashboard.html'">
+    Login
+  </button>
+
+  <button class="login-btn">
+    Sign Up
+  </button>
+
+  <div class="back">
+    <a href="index.html">← Back Home</a>
+  </div>
+</div>
+
+</body>
+</html>
