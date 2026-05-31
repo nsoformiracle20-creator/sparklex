@@ -1,2 +1,2 @@
-sb_publishable_zoPDM9gRHntFgml3_PRF1Q_AuNXomLD
+zoPDM9gRHntFgml3_PRF1Q_AuNXomLD
 
