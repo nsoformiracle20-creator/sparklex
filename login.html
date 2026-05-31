@@ -71,23 +71,9 @@ input{<input id="email" type="email" placeholder="Email">
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
-document.getElementById("signupBtn")
-.addEventListener("click", async () => {
-
-  const email = emailInput.value;
-  const password = passwordInput.value;
-
-  const { data, error } =
-    await supabaseClient.auth.signUp({
-      email,
-      password
-    });
-
-  if (error) {
-    alert(error.message);
-  } else {
-    alert("Account created successfully!");
-  }
+documdocument.getElementById("signupBtn")
+.addEventListener("click", () => {
+  alert("Sign Up button clicked");
 });
 
 document.getElementById("loginBtn")
