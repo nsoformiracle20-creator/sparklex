@@ -46,15 +46,15 @@ input{<input id="email" type="email" placeholder="Email">
   <h1>Welcome Back</h1>
   <p>Login to Sparklex</p>
 
-  <input type="email" placeholder="Email">
-  <input type="password" placeholder="Password">
+  <input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
 
-  <button class="login-btn" onclick="location.href='dashboard.html'">
-    Login
+  <button id="loginBtn" class="login-btn">
+  Login
   </button>
 
-  <button class="login-btn">
-    Sign Up
+  <button id="signupBtn" class="login-btn">
+  Sign Up
   </button>
 
   <div class="back">
@@ -65,9 +65,8 @@ input{<input id="email" type="email" placeholder="Email">
 <script src="supabase.js"></script>
 </body>
 </html>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase.js"></script
-                           <script>
+
+
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
