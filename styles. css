@@ -1,0 +1,42 @@
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:20px;
+  background:#111827;
+}
+
+button{
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
+
+.features,
+.pricing{
+  padding:40px 20px;
+}
+
+.card{
+  background:#1e293b;
+  padding:20px;
+  margin:15px 0;
+  border-radius:12px;
+}
+footer{
+  padding:30px;
+  text-align:center;
+  background:#111827;
+}
